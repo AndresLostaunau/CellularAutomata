@@ -1,0 +1,28 @@
+#IncludeRegexLine: ^[ 	]*[#%][ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+C:/Users/alost/OneDrive/Escritorio/CellularAutomata/GameOfLife.cpp
+vector
+-
+iostream
+-
+fstream
+-
+random
+-
+time.h
+-
+string
+-
+
+C:/Users/alost/OneDrive/Escritorio/CellularAutomata/main.cpp
+iostream
+-
+GameOfLife.cpp
+C:/Users/alost/OneDrive/Escritorio/CellularAutomata/GameOfLife.cpp
+
