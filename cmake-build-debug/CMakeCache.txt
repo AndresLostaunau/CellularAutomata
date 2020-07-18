@@ -250,6 +250,9 @@ CellularAutomata_BINARY_DIR:STATIC=C:/Users/alost/OneDrive/Escritorio/CellularAu
 //Value Computed by CMake
 CellularAutomata_SOURCE_DIR:STATIC=C:/Users/alost/OneDrive/Escritorio/CellularAutomata
 
+//Path to a file.
+SFML_DOC_DIR:PATH=SFML_DOC_DIR-NOTFOUND
+
 //Value Computed by CMake
 game_of_life_master_BINARY_DIR:STATIC=C:/Users/alost/OneDrive/Escritorio/CellularAutomata/cmake-build-debug
 

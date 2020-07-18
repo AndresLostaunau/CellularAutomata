@@ -4,7 +4,11 @@
 #include <random>
 #include <time.h>
 #include <string>
+#include <thread>
+#include <SFML/Graphics.hpp>
 using namespace std;
+const int height = 800;
+const int width = 800;
 
 class Cell{
 public:
@@ -302,14 +306,17 @@ public:
         return prev_matriz;
     }
 
-    void actulizar_loop(){
+    void actulizar_loop(sf::RenderWindow* window){
         int i = 1;
         srand(time(NULL));
-        while(i < 21){
+        bool a = true;
+        while(a){
             direccion = rand()%9;
             velocidad = rand()%4;
-            actualizar(i);
+            a = actualizar(i);
             i++;
+            graphicPrinter(window);
+            this_thread::sleep_for(1000ms);
         }
         firePercentage();
 
@@ -370,12 +377,53 @@ public:
         else
             cout<<(360 - direccion*45)%360<<" o \n\n";
     }
+
+    void graphicPrinter(sf::RenderWindow* window){
+        int cellX, cellY;
+        cellY = height/dimY;
+        cellX = width/dimX;
+        vector<sf::RectangleShape*> recVec;
+        sf::RectangleShape* r;
+        for(int i = 0; i <dimY; i++){
+            for(int j = 0; j<dimX;j++){
+                r = new sf::RectangleShape();
+                r->setSize(sf::Vector2f(cellY,cellX));
+                r->setPosition(cellX*j,cellY*i);
+                if(matriz[i+4][j+4]->value==0){
+                    r->setFillColor(sf::Color::Black);
+                }else if(matriz[i+4][j+4]->value==1){
+                    r->setFillColor(sf::Color::Green);
+                }else if(matriz[i+4][j+4]->value==2){
+                    r->setFillColor(sf::Color::Red);
+                }
+                recVec.push_back(r);
+            }
+        }
+        window->clear();
+        for(auto itr=recVec.begin(); itr!=recVec.end(); *itr++){
+            window->draw(*(*itr));
+        }
+        window->display();
+    }
     
     void execute(int init){
+
+        sf::RenderWindow window;
+        window.create(sf::VideoMode(width, height), "My window");
+
         percentageInit(init);
         startFire();
-        //printer();
-        actulizar_loop();
+        actulizar_loop(&window);
+
+        while (window.isOpen()){
+            sf::Event event;
+            while (window.pollEvent(event))
+            {
+                // "close requested" event: we close the window
+                if (event.type == sf::Event::Closed)
+                    window.close();
+            }
+        }
     }
 };
 

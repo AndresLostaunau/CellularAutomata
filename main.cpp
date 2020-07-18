@@ -3,10 +3,10 @@
 using namespace std;
 
 int main() {
-    /*auto n = new Matrix(10,10,0,9);
-    n->execute(95);
-    delete n;*/
-    auto m = new Matrix(10,10);
-    m->execute(90);
+
+
+    auto m = new Matrix(50,50);
+
+    m->execute(70);
     return 0;
 }

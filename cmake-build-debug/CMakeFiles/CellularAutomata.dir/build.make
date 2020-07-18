@@ -57,6 +57,7 @@ include CMakeFiles/CellularAutomata.dir/progress.make
 include CMakeFiles/CellularAutomata.dir/flags.make
 
 CMakeFiles/CellularAutomata.dir/GameOfLife.cpp.obj: CMakeFiles/CellularAutomata.dir/flags.make
+CMakeFiles/CellularAutomata.dir/GameOfLife.cpp.obj: CMakeFiles/CellularAutomata.dir/includes_CXX.rsp
 CMakeFiles/CellularAutomata.dir/GameOfLife.cpp.obj: ../GameOfLife.cpp
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=C:\Users\alost\OneDrive\Escritorio\CellularAutomata\cmake-build-debug\CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object CMakeFiles/CellularAutomata.dir/GameOfLife.cpp.obj"
 	C:\PROGRA~2\MINGW-~1\I686-8~1.0-P\mingw32\bin\G__~1.EXE  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles\CellularAutomata.dir\GameOfLife.cpp.obj -c C:\Users\alost\OneDrive\Escritorio\CellularAutomata\GameOfLife.cpp
@@ -70,6 +71,7 @@ CMakeFiles/CellularAutomata.dir/GameOfLife.cpp.s: cmake_force
 	C:\PROGRA~2\MINGW-~1\I686-8~1.0-P\mingw32\bin\G__~1.EXE $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S C:\Users\alost\OneDrive\Escritorio\CellularAutomata\GameOfLife.cpp -o CMakeFiles\CellularAutomata.dir\GameOfLife.cpp.s
 
 CMakeFiles/CellularAutomata.dir/main.cpp.obj: CMakeFiles/CellularAutomata.dir/flags.make
+CMakeFiles/CellularAutomata.dir/main.cpp.obj: CMakeFiles/CellularAutomata.dir/includes_CXX.rsp
 CMakeFiles/CellularAutomata.dir/main.cpp.obj: ../main.cpp
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=C:\Users\alost\OneDrive\Escritorio\CellularAutomata\cmake-build-debug\CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building CXX object CMakeFiles/CellularAutomata.dir/main.cpp.obj"
 	C:\PROGRA~2\MINGW-~1\I686-8~1.0-P\mingw32\bin\G__~1.EXE  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles\CellularAutomata.dir\main.cpp.obj -c C:\Users\alost\OneDrive\Escritorio\CellularAutomata\main.cpp
@@ -93,6 +95,9 @@ CellularAutomata_EXTERNAL_OBJECTS =
 CellularAutomata.exe: CMakeFiles/CellularAutomata.dir/GameOfLife.cpp.obj
 CellularAutomata.exe: CMakeFiles/CellularAutomata.dir/main.cpp.obj
 CellularAutomata.exe: CMakeFiles/CellularAutomata.dir/build.make
+CellularAutomata.exe: D:/SFML-2.5.1/lib/libsfml-graphics-d.a
+CellularAutomata.exe: D:/SFML-2.5.1/lib/libsfml-window-d.a
+CellularAutomata.exe: D:/SFML-2.5.1/lib/libsfml-system-d.a
 CellularAutomata.exe: CMakeFiles/CellularAutomata.dir/linklibs.rsp
 CellularAutomata.exe: CMakeFiles/CellularAutomata.dir/objects1.rsp
 CellularAutomata.exe: CMakeFiles/CellularAutomata.dir/link.txt
