@@ -5,8 +5,8 @@ using namespace std;
 int main() {
 
 
-    auto m = new Matrix(50,50);
+    auto m = new Matrix(80,80);
 
-    m->execute(70);
+    m->execute(40);
     return 0;
 }

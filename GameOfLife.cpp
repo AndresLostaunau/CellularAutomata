@@ -41,34 +41,14 @@ public:
 
     void percentageInit(int p){
         poblacion_inicial = p;
-        int n = p*dimX*dimY/100;
-        int x,y;
-        if(p<=50){
-            for(int i = 0; i < n; i++){
-                srand(time(nullptr));
-                x = rand()%dimX + 4;
-                y = rand()%dimY + 4;
-                if(matriz[x][y]->value==0){
-                    matriz[x][y]->value=1;
+        int n;
+        for(int i = 0; i < dimY; i++){
+            for(int j = 0; j < dimX; j++){
+                n = rand()%100;
+                if(n < p){
+                    matriz[j+4][i+4]->value=1;
                 }else{
-                    i--;
-                }
-            }
-        }else{
-            n= dimX*dimY - n;
-            for(int i = 0; i < dimY+8; i++){
-                for(int j = 0; j < dimX+8; j++){
-                    matriz[j][i]->value=1;
-                }
-            }
-            for(int i = 0; i < n; i++){
-                srand(time(nullptr));
-                x = rand()%dimX+4;
-                y = rand()%dimY+4;
-                if(matriz[x][y]->value==1){
-                    matriz[x][y]->value=0;
-                }else{
-                    i--;
+                    matriz[j+4][i+4]->value=0;
                 }
             }
         }
@@ -316,7 +296,7 @@ public:
             a = actualizar(i);
             i++;
             graphicPrinter(window);
-            this_thread::sleep_for(1000ms);
+            this_thread::sleep_for(500ms);
         }
         firePercentage();
 
