@@ -6,7 +6,7 @@ int main() {
     /*auto n = new Matrix(10,10,0,9);
     n->execute(95);
     delete n;*/
-    auto m = new Matrix(10,10,1,4);
+    auto m = new Matrix(10,10);
     m->execute(90);
     return 0;
 }

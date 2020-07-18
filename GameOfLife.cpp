@@ -24,7 +24,7 @@ public:
     vector<vector<Cell*>> matriz;
     int dimX, dimY, velocidad, poblacion_inicial, direccion;
 
-    Matrix(int x, int y, int v, int d):dimX(x),dimY(y),velocidad(v),direccion(d){
+    Matrix(int x, int y):dimX(x),dimY(y){
         for(int i = 0; i < y+8; i++){
             vector<Cell*> vecx;
             for(int j = 0; j < x+8; j++){
@@ -86,7 +86,7 @@ public:
     }
 
     void rule(vector<vector<Cell *>> prev_matriz, int y, int x){
-        if(direccion == 9){
+        if(direccion == 8){
             for(int j = y-1; j < y+2; j++){
                 for(int i = x-1; i < x+2; i++){
                     if(prev_matriz[j][i]->value==1){
@@ -303,18 +303,16 @@ public:
     }
 
     void actulizar_loop(){
-        bool a = true;
         int i = 1;
-        while(a){
-            a = actualizar(i);
+        srand(time(NULL));
+        while(i < 21){
+            direccion = rand()%9;
+            velocidad = rand()%4;
+            actualizar(i);
             i++;
         }
         firePercentage();
-        cout<<"Datos:\nDensidad poblacional: "<<poblacion_inicial<<" %\nVelocidad: "<<(velocidad+1)*6<<"km/h\nDireccion: ";
-        if(direccion==9)
-            cout<<"-\n";
-        else
-            cout<<(360 - direccion*45)%360<<" o \n\n\n";
+
     }
 
     bool actualizar(int contador){
@@ -326,8 +324,7 @@ public:
                 }
             }
         }
-        cout<<"Iteraciones "<<contador<<": \n";
-        printer();
+        printer(contador);
         return !(matrix_to_string(prev_matriz)==matrix_to_string(matriz));
     }
 
@@ -364,20 +361,20 @@ public:
         return out;
     }
 
-    void printer(){
-        fstream file;
-        file.open("output.txt",ofstream::out);
-        string out;
-        out = matrix_to_string(matriz);
-        cout<<out;
-        file<<out;
-        file.close();
+    void printer(int n){
+        cout<<"\nIteracion "<<n<<": \n";
+        cout<<matrix_to_string(matriz);
+        cout<<"Datos:\nDensidad poblacional: "<<poblacion_inicial<<" %\nVelocidad: "<<(velocidad+1)*6<<"km/h\nDireccion: ";
+        if(direccion==9)
+            cout<<"-\n";
+        else
+            cout<<(360 - direccion*45)%360<<" o \n\n";
     }
     
     void execute(int init){
         percentageInit(init);
         startFire();
-        printer();
+        //printer();
         actulizar_loop();
     }
 };
